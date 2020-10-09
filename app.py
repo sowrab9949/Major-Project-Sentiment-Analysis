@@ -7,13 +7,13 @@ filename = 'restaurant-sentiment-mnb-model.pkl'
 text_model = pickle.load(open(filename, 'rb'))
 tfidf = pickle.load(open('tfidf-transform.pkl','rb'))
 
-app1 = Flask(__name__)
+app = Flask(__name__)
 
-@app1.route('/')
+@app.route('/')
 def home():
 	return render_template('home.html')
 
-@app1.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
     	message = request.form['message']
@@ -23,4 +23,4 @@ def predict():
     	return render_template('result.html', prediction=my_prediction)
 
 if __name__ == '__main__':
-	app1.run(debug=True)
+	app.run(debug=True)
