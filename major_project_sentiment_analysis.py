@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Loading the dataset
-df = pd.read_csv('Restaurant_Reviews.tsv', delimiter='\t', quoting=3)
+df = pd.read_csv('/content/drive/My Drive/smartknower/Machine learning/Sentiment Analysis project/Restaurant_Reviews.tsv', delimiter='\t', quoting=3)
 
 # Importing essential libraries for performing Natural Language Processing on 'Restaurant_Reviews.tsv' dataset
 import nltk
