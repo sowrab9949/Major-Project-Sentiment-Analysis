@@ -4,8 +4,8 @@ import pickle
 
 # Load the Multinomial Naive Bayes model and CountVectorizer object from disk
 filename = 'restaurant-sentiment-mnb-model.pkl'
-text_model = pickle.load(open(filename, 'rb'))
-tfidf = pickle.load(open('tfidf-transform.pkl','rb'))
+classifier = pickle.load(open(filename, 'rb'))
+tfidf = pickle.load(open('cv-transform.pkl','rb'))
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def predict():
     	message = request.form['message']
     	data = [message]
     	vect = tfidf.transform(data).toarray()
-    	my_prediction = text_model.predict(vect)
+    	my_prediction = classifier.predict(vect)
     	return render_template('result.html', prediction=my_prediction)
 
 if __name__ == '__main__':
