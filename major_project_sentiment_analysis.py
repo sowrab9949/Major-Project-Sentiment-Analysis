@@ -39,13 +39,13 @@ for i in range(0,1000):
   corpus.append(review)
   
 # Creating the Bag of Words model
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(max_features=1500)
-X = cv.fit_transform(corpus).toarray()
+from sklearn.feature_extraction.text import TfidfVectorizer
+tfidf = TfidfVectorizer(max_features=1500)
+X = tfidf.fit_transform(corpus).toarray()
 y = df.iloc[:, 1].values
 
 # Creating a pickle file for the CountVectorizer
-pickle.dump(cv, open('cv-transform.pkl', 'wb'))
+pickle.dump(tfidf, open('tfidf-transform.pkl', 'wb'))
 
 
 # Model Building
