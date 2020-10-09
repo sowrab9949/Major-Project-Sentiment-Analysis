@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 import pickle
 
 # Load the Multinomial Naive Bayes model and CountVectorizer object from disk
-filename = 'restaurant-sentiment-mnb-model(1).pkl'
+filename = 'restaurant-sentiment-mnb-model.pkl'
 text_model = pickle.load(open(filename, 'rb'))
 tfidf = pickle.load(open('tfidf-transform.pkl','rb'))
 
